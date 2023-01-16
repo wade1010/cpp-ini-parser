@@ -22,17 +22,20 @@ int main()
     // Value v4;
     // v4 = "c++";
 
-    Value v1(true);
-    bool a = v1;
+    // Value v1(true);
+    // bool a = v1;
 
-    Value v2(1111);
-    int b = v2;
+    // Value v2(1111);
+    // int b = v2;
 
-    Value v3(1.11);
-    double c = v3;
+    // Value v3(1.11);
+    // double c = v3;
 
-    Value v4("c++");
-    const string &d = v4;
+    // Value v4("c++");
+    // const string &d = v4;
+
+    IniFile ini;
+    ini.load("test.ini");
 
     return 0;
 }

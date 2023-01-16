@@ -34,6 +34,11 @@ typedef std::map<string, Value> Section;
 
 class IniFile
 {
+public:
+    IniFile();
+    bool load(const string &filename);
+    void trim(string &str);
+
 private:
     string m_filename;
     std::map<string, Section> m_sections;

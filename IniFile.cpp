@@ -1,5 +1,8 @@
 #include "IniFile.h"
 #include <sstream>
+#include <fstream>
+#include <algorithm>
+#include <iostream>
 
 Value::Value() {}
 
@@ -84,4 +87,39 @@ Value::operator double()
 Value::operator string()
 {
     return m_value;
+}
+
+IniFile::IniFile()
+{
+}
+
+bool IniFile::load(const string &filename)
+{
+    // load 使用输入流
+    ifstream ifs(filename);
+    if (ifs.fail())
+    {
+        std::cout << "加载文件失败" << std::endl;
+        return false;
+    }
+    // 开始读取内容
+    string line;
+    while (std::getline(ifs, line))
+    {
+        // trim两头
+        // 读取测试
+        std::cout << line << std::endl;
+        if (line == "")
+            continue;
+    }
+
+    ifs.close();
+    return true;
+}
+
+void IniFile::trim(string &str)
+{
+    // trim left
+    str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch)
+                                        { return std::isspace(ch); }));
 }
