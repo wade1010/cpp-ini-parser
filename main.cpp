@@ -37,5 +37,22 @@ int main()
     IniFile ini;
     ini.load("test.ini");
 
+    // const string &ip = ini.get("server", "ip");
+    // const int port = ini.get("server", "port");
+
+    // 重载[]后
+    const string &ip = ini["server"]["ip"];
+    const int port = ini["server"]["port"];
+
+    ini.set("server", "user", "root");
+    ini.set("server", "password", "123456");
+
+    ini.display();
+
+    ini.save("save.ini");
+
+    // ini.remove("server");
+    ini.remove("server", "ip");
+
     return 0;
 }
